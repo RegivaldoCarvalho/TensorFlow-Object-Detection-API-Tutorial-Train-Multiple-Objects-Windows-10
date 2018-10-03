@@ -73,6 +73,14 @@ You can choose which model to train your objection detection classifier on. If y
 
 This tutorial will use the Faster-RCNN-Inception-V2 model. [Download the model here.](http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz) Open the downloaded faster_rcnn_inception_v2_coco_2018_01_28.tar.gz file with a file archiver such as WinZip or 7-Zip and extract the faster_rcnn_inception_v2_coco_2018_01_28 folder to the C:\tensorflow1\models\research\object_detection folder. (Note: The model date and version will likely change in the future, but it should still work with this tutorial.)
 
+Or use the command below, from the folder C:\tensorflow1\models\research\object_detection, to extract the files 
+
+```
+tar -xvf faster_rcnn_inception_v2_coco_2018_01_28.tar
+
+```
+
+
 #### 2c. Download this tutorial's repository from GitHub
 Download the full repository located on this page (scroll to the top and click Clone or Download) and extract all the contents directly into the C:\tensorflow1\models\research\object_detection directory. (You can overwrite the existing "README.md" file.) This establishes a specific directory structure that will be used for the rest of the tutorial. 
 
@@ -144,6 +152,11 @@ protoc --python_out=. .\object_detection\protos\anchor_generator.proto .\object_
 This creates a name_pb2.py file from every name.proto file in the \object_detection\protos folder.
 
 **(Note: TensorFlow occassionally adds new .proto files to the \protos folder. If you get an error saying ImportError: cannot import name 'something_something_pb2' , you may need to update the protoc command to include the new .proto files.)**
+
+##### 2f1 - Fix Python3 incompatibility - Following the steps on link below 
+```
+https://github.com/tensorflow/models/issues/3705#issuecomment-375563179
+```
 
 Finally, run the following commands from the C:\tensorflow1\models\research directory:
 ```
